@@ -1,5 +1,10 @@
 # Toolformer Demonstration Notebook
 
+**언어 선택 / Language Selection:**
+
+- [🇰🇷 한국어 (Korean)](README.ko.md)
+- [🇺🇸 English](README.md)
+
 ## Overview  
 [This Jupyter Notebook](https://github.com/limJhyeok/toolformer-experiment/blob/main/jupyter.ipynb) demonstrates the **Toolformer** approach, where a language model (GPT-J in this case) is augmented with API call capabilities to enhance its ability to complete tasks requiring external information. By inserting API calls during text generation and leveraging the responses, the model can dynamically incorporate real-time data into its outputs.
 
@@ -66,6 +71,18 @@ The store is never open on the [Calendar() -> Today is Saturday, November 25, 20
   api without result loss: 2.98
   plain text loss: 3.83
   ```
+  ```python
+  # api_with_result_output.loss: 2.84
+  # api_without_result_output.loss: 2.98
+  # plain_output.loss: 3.83
+  # filtering_threshold: variable(e.g., 1.0)
+  
+  if api_with_result_output.loss < min(api_without_result_output.loss, plain_output.loss) + filtering_threshold:
+    finetune_dataset = including_API_without_result + next_words
+  else:
+    finetune_dataset = plain_text + next_words
+  ```
+  
 - **Dynamic API Calls**: Enables the model to seamlessly interact with tools during text generation.  
 - **Customizable APIs**: Easily extendable to include other APIs beyond `Calendar`.
 

@@ -78,8 +78,8 @@ The store is never open on the [Calendar() -> Today is Saturday, November 25, 20
   # api_without_result_output.loss: 2.98
   # plain_output.loss: 3.83
   # filtering_threshold: 사용자 정의(e.g., 1.0)
-  
-  if api_with_result_output.loss < min(api_without_result_output.loss, plain_output.loss) + filtering_threshold:
+
+  if min(api_without_result_output.loss, plain_output.loss) - api_with_result_output.loss >= filtering_threshold:
     finetune_dataset = including_API_without_result + next_words
   else:
     finetune_dataset = plain_text + next_words

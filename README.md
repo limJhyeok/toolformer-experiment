@@ -79,7 +79,7 @@ The store is never open on the [Calendar() -> Today is Saturday, November 25, 20
 
 ## References
 1. [original paper(Toolformer: Language Models Can Teach Themselves to Use Tools)](https://arxiv.org/abs/2302.04761)
-2. [lucidrains/Toolformer](https://github.com/lucidrains/toolformer-pytorch)
+2. [lucidrains/toolformer-pytorch](https://github.com/lucidrains/toolformer-pytorch)
 
 ## Notes  
 This notebook serves as an introduction to **Toolformer** principles. It can be extended with additional APIs and customized pipelines to address specific use cases, such as database queries, real-time weather updates, or knowledge retrieval systems.
